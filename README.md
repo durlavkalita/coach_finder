@@ -22,3 +22,11 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 - start with coacheslist page
 
 - create the Header component for navigation and fill different route pages with dummy template
+
+- install vuex. - npm install vuex@next --save will migrate to pinia later
+
+- create the modular store
+
+- create components for coach and request modules
+
+- create base button and card components
