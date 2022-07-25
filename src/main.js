@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import './style.css'
+// import './style.css'
 // import { createPinia } from 'pinia'
 import store from './store'
 import App from './App.vue'
