@@ -1,4 +1,5 @@
 <template>
+<div>
     <section>
         <base-card>
             <h2>{{fullname}}</h2>
@@ -26,6 +27,7 @@
             <p>{{description}}</p>
         </base-card>
     </section>
+    </div>
 </template>
 
 <script>

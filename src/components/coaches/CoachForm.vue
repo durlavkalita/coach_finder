@@ -83,7 +83,8 @@ export default {
                 this.lastName.isValid = false;
                 this.formIsValid = false;
             }
-            if (this.rate.val || this.rate.val < 0) {
+            if (this.rate.val < 0) {
+                console.log(this.rate.val);
                 this.rate.isValid = false;
                 this.formIsValid = false;
             }

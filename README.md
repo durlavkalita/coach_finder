@@ -30,3 +30,5 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 - create components for coach and request modules
 
 - create base button and card components
+
+- use firebase to create a project to be used as backend
