@@ -8,7 +8,7 @@ export const useCoachStore = defineStore('CoachStore', {
     // },
     state: () => ({ name: 'dk' }),
     getters: {
-        firstname() {
+        firstName() {
             return this.name[0]
         },
         nameLength: state => state.name.length

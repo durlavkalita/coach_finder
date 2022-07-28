@@ -84,7 +84,6 @@ export default {
                 this.formIsValid = false;
             }
             if (this.rate.val < 0) {
-                console.log(this.rate.val);
                 this.rate.isValid = false;
                 this.formIsValid = false;
             }

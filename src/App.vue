@@ -8,14 +8,13 @@
 </template>
 
 <script>
-
 import HeaderVue from "./components/layout/Header.vue";
+
 export default {
   components: {
     HeaderVue
   }
 }
-
 </script>
 
 <style scoped>
@@ -23,13 +22,14 @@ export default {
   opacity: 0;
   transform: translateY(-30px);
 }
+
 .route-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
 
 .route-enter-active {
-  transition: all 0.3s ease-out; 
+  transition: all 0.3s ease-out;
 }
 
 .route-leave-active {
