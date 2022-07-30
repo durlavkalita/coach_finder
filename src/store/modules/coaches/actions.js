@@ -9,7 +9,8 @@ export default {
             areas: data.areas
         };
 
-        const response = await fetch(`https://vue-coach-finder-c9ab2-default-rtdb.firebaseio.com/coaches/${userId}.json`, {
+        const token = context.rootGetters.token;
+        const response = await fetch(`https://vue-coach-finder-c9ab2-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=${token}`, {
             method: 'PUT',
             body: JSON.stringify(coachData)
         });

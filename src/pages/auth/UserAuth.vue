@@ -1,4 +1,11 @@
 <template>
+<div>
+  <base-dialog :show="!!error" title="error occurred" @close="handleError">
+  <p> {{ error }} </p>
+  </base-dialog>
+  <base-dialog :show="isLoading" fixed title="Authenticating">
+    <base-spinner></base-spinner>
+  </base-dialog>
     <base-card>
         <form @submit.prevent="submitForm">
             <div class="from-control">
@@ -14,6 +21,7 @@
             <base-button type="button" mode="flat" @click="switchAuthMode">{{switchModeButtonCaption}}</base-button>
         </form>
     </base-card>
+    </div>
 </template>
 
 <script>
@@ -23,7 +31,9 @@ export default {
       email: '',
       password: '',
       isFormValid: true,
-      mode: 'login'
+      mode: 'login',
+      isLoading: false,
+      error: null
     };
   },
   computed: {
@@ -43,12 +53,32 @@ export default {
     }
   },
   methods: {
-    submitForm() {
+    async submitForm() {
       this.isFormValid = true;
       if (this.email === '' || !this.email.includes('@') || this.password.length < 6) {
         this.isFormValid = false;
         return;
       }
+
+      this.isLoading = true;
+
+      try {
+        if (this.mode === 'login') {
+          await this.$store.dispatch('login', {
+            email: this.email,
+            password: this.password
+          });
+        } else {
+          await this.$store.dispatch('signup', {
+            email: this.email,
+            password: this.password
+          });
+        }
+      } catch (error) {
+        this.error = error.message || 'Something went wrong during authentication'
+      }
+
+      this.isLoading = false;
     },
     switchAuthMode() {
       if (this.mode === 'login') {
@@ -56,6 +86,9 @@ export default {
       } else {
         this.mode = 'login';
       }
+    },
+    handleError() {
+      this.error = null;
     }
   }
 }
